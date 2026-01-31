@@ -1,0 +1,41 @@
+# All files are treated as text files with Unix-style line endings by default
+* text eol=lf encoding=utf-8
+
+# All .bat files are treated as text files with Windows-style line endings by default
+*.bat text eol=crlf encoding=utf-8
+
+# All .cmd files are treated as text files with Windows-style line endings by default
+*.cmd text eol=crlf encoding=utf-8
+
+# Run .png files through Git LFS
+*.png filter=lfs diff=lfs merge=lfs -text
+
+# Run .ico files through Git LFS
+*.ico filter=lfs diff=lfs merge=lfs -text
+
+# Run .jpeg files through Git LFS
+*.jpeg filter=lfs diff=lfs merge=lfs -text
+
+# Run .jpg files through Git LFS
+*.jpg filter=lfs diff=lfs merge=lfs -text
+
+# Run .bmp files through Git LFS
+*.bmp filter=lfs diff=lfs merge=lfs -text
+
+# Run .gif files through Git LFS
+*.gif filter=lfs diff=lfs merge=lfs -text
+
+# Run .ttf files through Git LFS
+*.ttf filter=lfs diff=lfs merge=lfs -text
+
+# Run .otf files through Git LFS
+*.otf filter=lfs diff=lfs merge=lfs -text
+
+# Run .woff files through Git LFS
+*.woff filter=lfs diff=lfs merge=lfs -text
+
+# Run .woff2 files through Git LFS
+*.woff2 filter=lfs diff=lfs merge=lfs -text
+
+# Run .eot files through Git LFS
+*.eot filter=lfs diff=lfs merge=lfs -text
