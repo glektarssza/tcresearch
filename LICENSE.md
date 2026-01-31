@@ -1,36 +1,6 @@
+# License #
 
-# Thaumcraft 4.x Research Helper #
-
-A tool for Thaumcraft 4.x that helps figure out what aspects to use to go between
-two aspects in a given number of connections.
-
-## About ##
-
-This tool helps you with your Thaumcraft 4.x research. If you have a research
-note with two aspects that you don't know how to connect, this is your tool.
-
-+ Select the __aspect from which__ you have to __start__.
-+ Select the __aspect__ you have __to get to__.
-+ Additionally, you can __specify the minimum number of steps__ needed to go
-  between the __aspects__. This is the number of empty spaces between the two
-  aspects in your research note.
-+ __Hit Go!__
-
-If you are unhappy with the path you got, because you do not have access to
-those __aspects__ yet or they are quite rare, simply disable those aspects in
-the config section. Then, by clicking an aspect in the search result, you can
-rerun the search again but with aspect disabled (temporarily).
-
-## License ##
-
-Copyright ythri, Jesús Cuenca, and G'lek Tarssza
-
-Licensed under the [Creative Commons Attribution 4.0 License](http://creativecommons.org/licenses/by/4.0/).
-
-See [LICENSE.md](https://github.com/glektarssza/tcresearch/blob/main/LICENSE.md)
-for the full license.
-
-### G'lek Tarssza's Updated Version ###
+## G'lek Tarssza's Updated Version ##
 
 This improved/additional functionality version was created by myself, G'lek
 Tarssza. You can learn more about me via my [GitHub](https://github.com/glektarssza)
@@ -41,9 +11,9 @@ or the [dedicated subdomain on my personal domain](https://tcresearch.glektarssz
 My version is licensed under the same [Creative Commons Attribution 4.0 License](http://creativecommons.org/licenses/by/4.0/)
 as ythri's original and Jesús Cuenca's version.
 
-The license can be found [in the `LICENSE.md` file](https://github.com/glektarssza/tcresearch/blob/main/LICENSE.md).
+The license can be found [in the `LICENSE.md` file](https://github.com/JesusCuenca/tcresearch/blob/main/LICENSE.md).
 
-### Jesús Cuenca Restyled Version ###
+## Jesús Cuenca Restyled Version ##
 
 The restyled version was created by Jesús Cuenca. You can find more information
 on their [`about.me`](http://about.me/jesus.cuenca) page or
@@ -56,7 +26,7 @@ as ythri's original version.
 
 The license can be found [on line 17 of the `README.md` file](https://github.com/JesusCuenca/tcresearch/blob/gh-pages/README.md?plain=1#L17).
 
-### ythri's Version ###
+## ythri's Version ##
 
 The original version was created by [ythri](https://github.com/ythri) and can be
 found in [ythri's `tcresearch` GitHub repo](https://github.com/ythri/tcresearch).
