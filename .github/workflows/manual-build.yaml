@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+name: Manual Release
+on:
+  workflow_dispatch:
+    inputs:
+      upload-artifacts:
+        type: boolean
+        description: |
+          Whether to upload build artifacts.
+
+          Defaults to "true".
+        required: false
+        default: true
+      artifact-retention-days:
+        description: |
+          The time, in days, to retain artifacts for.
+
+          Set to "0" to default to the repository configuration.
+
+          Defaults to "0".
+        type: number
+        required: false
+        default: 0
+jobs:
+  build:
+    name: Build
+    permissions:
+      # -- Needed to checkout the repository
+      contents: read
+    uses: ./.github/workflows/build.yaml
+    with:
+      upload-artifacts: ${{inputs.upload-artifacts}}
+      artifact-retention-days: ${{inputs.artifact-retention-days}}
+    secrets:
+      github-token: ${{secrets.GITHUB_TOKEN}}

@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+name: On Release
+on:
+  release:
+    types:
+      - published
+jobs:
+  build:
+    name: Build
+    uses: ./.github/workflows/build.yaml
+    secrets:
+      github-token: ${{secrets.GITHUB_TOKEN}}
+  spell-check:
+    name: Spell Check
+    uses: ./.github/workflows/spell-check.yaml
+    secrets:
+      github-token: ${{secrets.GITHUB_TOKEN}}
+  publish:
+    name: Publish
+    needs:
+      - build
+      - spell-check
+    permissions:
+      # -- Needed to checkout the repository
+      contents: read
+      # -- Needed to write to GitHub Pages
+      pages: write
+      # -- Needed to deploy to GitHub Pages
+      id-token: write
+    concurrency:
+      group: deploy-github-pages
+      cancel-in-progress: false
+    uses: ./.github/workflows/deploy.yaml
+    secrets:
+      github-token: ${{secrets.GITHUB_TOKEN}}
+    with:
+      artifact-id: ${{needs.build.outputs.artifact-id}}
+      run-id: ${{github.run_id}}

@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+name: On Push
+on:
+  push:
+jobs:
+  build:
+    name: Build
+    permissions:
+      # -- Required to check out the repository
+      contents: read
+    strategy:
+      fail-fast: true
+      matrix:
+        build-type:
+          - development
+          - production
+    uses: ./.github/workflows/build.yaml
+    secrets:
+      github-token: ${{secrets.GITHUB_TOKEN}}

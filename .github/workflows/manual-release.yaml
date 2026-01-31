@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+name: Manual Release
+on:
+  workflow_dispatch:
+    inputs:
+      deploy:
+        description: |
+          Whether to deploy the build to the GitHub pages environment.
+        type: boolean
+        required: false
+        default: false
+jobs:
+  build:
+    name: Build
+    permissions:
+      # -- Needed to checkout the repository
+      contents: read
+    uses: ./.github/workflows/build.yaml
+    secrets:
+      github-token: ${{secrets.GITHUB_TOKEN}}
+  publish:
+    name: Publish
+    if: inputs.deploy
+    needs:
+      - build
+    permissions:
+      # -- Needed to checkout the repository
+      contents: read
+      # -- Needed to write to GitHub Pages
+      pages: write
+      # -- Needed to deploy to GitHub Pages
+      id-token: write
+    concurrency:
+      group: deploy-github-pages
+      cancel-in-progress: false
+    uses: ./.github/workflows/deploy.yaml
+    secrets:
+      github-token: ${{secrets.GITHUB_TOKEN}}
+    with:
+      artifact-name: ${{needs.build.outputs.artifact-name}}
+      run-id: ${{github.run_id}}
