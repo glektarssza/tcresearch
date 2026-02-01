@@ -105,9 +105,8 @@ var tcresearch = {
     },
 
     pushAddons: function (aspects, combinations) {
-        var self = this,
-            addonArray = addon_dictionary;
-        (self.addonAspects = []),
+        var self = this;
+        ((self.addonAspects = []),
             $.each(addon_dictionary, function (key, addonInfo) {
                 var $addon = $(self.html.toggleAddon);
                 $addon
@@ -125,7 +124,7 @@ var tcresearch = {
                 $.each(addonInfo['aspects'], function (number, aspect) {
                     self.addonAspects.push(aspect);
                 });
-            });
+            }));
 
         self.addonAspects = self.addonAspects.sort(aspectSort);
 
@@ -169,7 +168,6 @@ var tcresearch = {
             from = this.c.$from.val(),
             to = this.c.$to.val(),
             steps = +this.c.$steps.val(),
-            id = from + 'to' + to,
             path = this.find(from, to, steps),
             stepCount = 0,
             loopCount = 0,
@@ -578,10 +576,18 @@ tcresearch.init();
  * Sorting functions
  */
 function aspectSort(a, b) {
-    return a == b ? 0 : translate[a] < translate[b] ? -1 : 1;
+    return (
+        a == b ? 0
+        : translate[a] < translate[b] ? -1
+        : 1
+    );
 }
 function ddDataSort(a, b) {
-    return a.text == b.text ? 0 : translate[a] < translate[b] ? -1 : 1;
+    return (
+        a.text == b.text ? 0
+        : translate[a] < translate[b] ? -1
+        : 1
+    );
 }
 
 /**
