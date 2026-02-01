@@ -1,53 +1,65 @@
-<!DOCTYPE html>
+<!doctype html>
 <html class="full-height">
     <head>
         <meta charset="UTF-8" />
-        <title>Thaumcraft 4 Research Helper</title>
-        <link
-            href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
-            rel="stylesheet" />
+        <title>Thaumcraft 4.x Research Helper</title>
+        <meta
+            name="application-name"
+            content="Thaumcraft 4.x Research Helper" />
+        <meta
+            name="description"
+            content="A tool for Thaumcraft 4.x that helps figure out what aspects to use to go between two aspects in a given number of connections." />
+        <meta name="author" content="G'lek Tarssza" />
+        <meta name="publisher" content="G'lek Tarssza" />
+        <meta name="creator" content="ythri" />
+        <meta name="creator" content="Jesús Cuenca" />
+        <meta name="creator" content="G'lek Tarssza" />
+        <meta
+            name="keywords"
+            content="thaumcraft,research,helper,minecraft,web,app,tool" />
+        <meta name="robots" content="index,nofollow,noarchive" />
         <meta
             name="viewport"
             content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
         <link
-            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+            href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+            type="text/css"
             rel="stylesheet" />
-        <script
-            type="text/javascript"
-            src="js/buckets-minified.js"></script>
+        <link
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+            type="text/css"
+            rel="stylesheet" />
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" />
+        <link rel="stylesheet" href="css/select2.css" />
+        <link rel="stylesheet" type="text/css" href="css/tcresearch.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <script type="text/javascript" src="js/buckets-minified.js"></script>
         <script
             type="text/javascript"
             src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-        <!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script> -->
-        <script
-            type="text/javascript"
-            src="js/select2.min.js"></script>
-        <link
-            rel="stylesheet"
-            href="https://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" />
-        <link
-            rel="stylesheet"
-            href="css/select2.css" />
+        <script type="text/javascript" src="js/select2.min.js"></script>
         <script
             type="text/javascript"
             src="js/translation_dictionary.js"></script>
         <script
             type="text/javascript"
+            type="application/javascript"
             src="js/version_dictionary.js"></script>
         <script
             type="text/javascript"
+            type="application/javascript"
             src="js/addon_dictionary.js"></script>
-        <link
-            rel="stylesheet"
-            href="css/tcresearch.css" />
-        <link
-            rel="stylesheet"
-            href="css/LESS/style.css" />
+        <script
+            type="text/javascript"
+            type="application/javascript"
+            src="js/tcresearch.js"
+            defer></script>
     </head>
     <body class="full-height">
-        <div
-            class="container full-height"
-            id="main">
+        <div class="container full-height" id="main">
             <div class="row full-height">
                 <!-- Search container -->
                 <div
@@ -82,7 +94,7 @@
 
                                 <div class="col-md-12">
                                     <form>
-                                        <h2>Thaumcraft 4 Research Helper</h2>
+                                        <h2>Thaumcraft 4.x Research Helper</h2>
 
                                         <div class="form-group">
                                             <label for="fromSel">From</label>
@@ -167,9 +179,7 @@
             <!-- .row -->
         </div>
 
-        <div
-            class="container"
-            id="config">
+        <div class="container" id="config">
             <div class="row">
                 <div
                     class="col-lg-8 col-lg-offset-2 col-md-8 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">
@@ -177,23 +187,15 @@
 
                     <div class="clearfix text-center">
                         <div class="btn-group">
-                            <a
-                                href="#"
-                                class="btn btn-default"
-                                id="sel_all"
+                            <a href="#" class="btn btn-default" id="sel_all"
                                 >Select All</a
                             >
-                            <a
-                                href="#"
-                                class="btn btn-default"
-                                id="desel_all"
+                            <a href="#" class="btn btn-default" id="desel_all"
                                 >Deselect All</a
                             >
                         </div>
 
-                        <div
-                            class="btn-group"
-                            id="addons"></div>
+                        <div class="btn-group" id="addons"></div>
 
                         <div class="btn-group">
                             <select
@@ -209,20 +211,16 @@
             </div>
         </div>
 
-        <div
-            class="container"
-            id="info">
+        <div class="container" id="info">
             <div class="row">
                 <div
                     class="col-lg-8 col-lg-offset-2 col-md-8 col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">
                     <h2>Help</h2>
-
                     <p>
-                        This script helps you with your Thaumcraft 4.x research.
+                        This tool helps you with your Thaumcraft 4.x research.
                         If you have a research note with two aspects that you
                         don't know how to connect, this is your tool.
                     </p>
-
                     <ul>
                         <li>
                             Select the <strong>aspect from which</strong> you
@@ -235,21 +233,20 @@
                         <li>
                             Additionally, you can
                             <strong>specify the minimum number of steps</strong>
-                            needed, that is, the number of empty spaces between
-                            the two aspects in your research note.
+                            needed to go between the <strong>aspects</strong>.
+                            This is the number of empty spaces between the two
+                            aspects in your research note.
                         </li>
                         <li><strong>Hit Go!</strong></li>
                     </ul>
-
                     <p>
                         If you are unhappy with the path you got, because you do
                         not have access to those aspects yet or they are quite
                         rare, simply disable those aspects in the config
-                        section. Besides, clicking an aspect in a search result
-                        will rerun the search again, but with the aspect
-                        disabled (just momentarily).
+                        section. Then, by clicking an aspect in the search
+                        result, you can rerun the search again but with aspect
+                        disabled (temporarily).
                     </p>
-
                     <div class="web-info">
                         <p class="license">
                             This work is licensed under a
@@ -286,6 +283,26 @@
                                 >GitHub page</a
                             >.
                         </p>
+                        <p class="style">
+                            Extra functionality and updates by
+                            <a
+                                target="_blank"
+                                href="https://github.com/glektarssza"
+                                >Jesús Cuenca</a
+                            >. Forked code hosted at
+                            <a
+                                target="_blank"
+                                href="https://github.com/glektarssza/tcresearch"
+                                ><span class="fa fa-github"></span> GitHub</a
+                            >. The page can be found in its
+                            <a href="https://tcresearch.glektarssza.com/"
+                                >dedicated sub-domain</a
+                            >
+                            or
+                            <a href="https://jesuscuenca.github.io/tcresearch/"
+                                >GitHub Pages site</a
+                            >.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -310,9 +327,5 @@
                 </div>
             </div>
         </div>
-
-        <script
-            type="text/javascript"
-            src="js/tcresearch.js"></script>
     </body>
 </html>
